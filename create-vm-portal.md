@@ -15,37 +15,37 @@ The first step is to sign into the portal.
 * Choose Create a resource in the upper left corner of the Azure portal:
 
 <p align="left">
-  <img width="50%" height="50%" src="./media/Portal-with-arrow.png">
+  <img width="50%" height="50%" hspace="20" src="./media/Portal-with-arrow.png">
 </p>
 <br>
 
 * In the search box above the list of Azure Marketplace resources, search for and select Ubuntu Server 16.04 LTS, then choose Create.
 <p align="left">
-  <img width="75%" height="75%" src="./media/create-ubuntu1604-2.png">
+  <img width="75%" height="75%" hspace="20" src="./media/create-ubuntu1604-2.png">
 </p>
 <br>
 
 * In the Basics tab, under Project details, make sure the correct subscription is selected and then choose to Create new under Resource group. In the pop-up, type myResourceGroup for the name of the resource group and then choose OK.
 <p align="left">
-  <img width="75%" height="75%" src="./media/im1-project-details-2.png">
+  <img width="75%" height="75%" hspace="20" src="./media/im1-project-details-2.png">
 </p>
 <br>
 
 * Under Instance details, type myVM for the Virtual machine name and choose West Europe for your Region. Leave the other defaults
 <p align="left">
-  <img width="75%" height="75%" src="./media/im2-instance-details-2.png">
+  <img width="75%" height="75%" hspace="20" src="./media/im2-instance-details-2.png">
 </p>
 <br>
 
 * Under Administrator account, select Password, type your user name, then a password that fullfils the criteria (you will notice if it is accepted)
 <p align="left">
-  <img width="75%" height="75%" src="./media/im3-replace-administrator-account-2.png">
+  <img width="75%" height="75%" hspace="20" src="./media/im3-replace-administrator-account-2.png">
 </p>
 <br>
 
 * Under Inbound port rules > Public inbound ports, choose Allow selected ports and then select SSH (22) and HTTP (80) from the drop-down. SSH (port 22) is needed for a later step, when you will access the virtual machine using ssh to start a web server. Port 80 is needed when you access that web page from your browser.
 <p align="left">
-  <img width="75%" height="75%" src="./media/im4-inbound-port-rules-2.png">
+  <img width="75%" height="75%" hspace="20" src="./media/im4-inbound-port-rules-2.png">
 </p>
 <br>
 
@@ -60,7 +60,7 @@ Create an SSH connection with the VM.
 
 Select the Connect button on the overview page for your VM.
 <p align="left">
-  <img width="75%" height="75%" src="./media/connect-to-vm.png">
+  <img width="75%" height="75%" hspace="20" src="./media/connect-to-vm.png">
 </p>
 <br>
 
@@ -80,5 +80,5 @@ sudo apt-get -y install nginx
 ### View the web server in action
 Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
 <p align="left">
-  <img width="75%" height="75%" src="./media/nginx.png">
+  <img width="75%" height="75%" hspace="20" src="./media/nginx.png">
 </p>
