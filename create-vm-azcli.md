@@ -29,7 +29,7 @@ Create a VM with the az vm create command.
 The following example creates a VM named myVM2 and adds a user account named azureuser. 
 
 ## TODO: change to password
-The --generate-ssh-keys parameter is used to automatically generate an SSH key, and put it in the default key location (~/.ssh). To use a specific set of keys instead, use the --ssh-key-value option.
+The admin-username and admin-password will be used to login to the VM. Note that it is not a recommended security practice to enter a password in clear text as below. Instead ssh-keys should be used.
 
 ```console
 az vm create \
@@ -37,7 +37,7 @@ az vm create \
   --name myVM2 \
   --image UbuntuLTS \
   --admin-username azureuser \
-  --generate-ssh-keys
+  --admin-password a-very-secure-password
   ```
   
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
