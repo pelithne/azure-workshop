@@ -53,3 +53,32 @@ The first step is to sign into the portal.
 <br>
 
 * On the Create a virtual machine page, you can see the details about the VM you are about to create. When you are ready, select Create.
+
+
+### Connect to virtual machine
+Create an SSH connection with the VM.
+
+Select the Connect button on the overview page for your VM.
+<p align="left">
+  <img width="75%" height="75%" src="./media/connect-to-vm.png">
+</p>
+<br>
+
+
+In the Connect to virtual machine page, keep the default options to connect by IP address over port 22. In Login using VM local account a connection command is shown. The following example shows what the SSH connection command looks like:
+```console
+ssh azureuser@10.111.12.123
+```
+
+### Install web server
+To see your VM in action, install an NGINX web server. From your SSH session, update your package sources and then install the latest NGINX package.
+```console
+sudo apt-get -y update
+sudo apt-get -y install nginx
+```
+
+### View the web server in action
+Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
+<p align="left">
+  <img width="75%" height="75%" src="./media/nginx.png">
+</p>
