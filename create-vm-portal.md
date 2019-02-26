@@ -82,3 +82,7 @@ Use a web browser of your choice to view the default NGINX welcome page. Enter t
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/nginx.png">
 </p>
+
+
+## Nest step
+The next step is to do the same thing again (whoho!) but using the Azure CLI! Click <a href="https://github.com/pelithne/azure-workshop/blob/master/create-vm-azcli.md">here</a> to continue.
