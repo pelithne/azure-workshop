@@ -25,19 +25,21 @@ The first step is to sign into the portal.
 </p>
 <br>
 
-* In the Basics tab, under Project details, make sure the correct subscription is selected and then choose to Create new under Resource group. In the pop-up, type myResourceGroup for the name of the resource group and then choose OK.
+* In the Basics tab, under Project details, make sure the correct subscription is selected and then choose to Create new under Resource group. In the pop-up, type **VG-A-33858-LAB-RG** for the name of the resource group and then choose OK. 
+
+The resourse group has been created for the purpose of this workshop, and will be used by everyone. 
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/im1-project-details-2.png">
 </p>
 <br>
 
-* Under Instance details, type myVM for the Virtual machine name and choose West Europe for your Region. Leave the other defaults
+* Under Instance details, give the Virtual machine a unique name name (e.g. using your corporate signum) and choose West Europe for your Region. Leave the other defaults
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/im2-instance-details-2.png">
 </p>
 <br>
 
-* Under Administrator account, select Password, type your user name, then a password that fullfils the criteria (you will notice if it is accepted)
+* Under Administrator account, select Password, type your user name, then a password that fullfils the criteria (you will be informed if it is accepted or not)
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/im3-replace-administrator-account-2.png">
 </p>
