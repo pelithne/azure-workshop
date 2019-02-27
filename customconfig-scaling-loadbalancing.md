@@ -64,7 +64,6 @@ This time, when you create the VM, you will pass your newly created cloud-init.t
 az vm create \
     --resource-group  VG-A-33858-LAB-RG \
     --name pelithnevm \
-    --image UbuntuServer:14.04.5-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
