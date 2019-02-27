@@ -66,8 +66,7 @@ az vm create \
     --name pelithnevm \
     --image UbuntuLTS \
     --admin-username azureuser \
-    --admin-username azureuser \
-    --admin-password A-very-secure-passw0rd
+    --admin-password A-very-secure-passw0rd \
     --custom-data cloud-init.txt
 ````
 
