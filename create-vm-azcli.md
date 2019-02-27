@@ -16,25 +16,23 @@ To open the Cloud Shell, just select Try it from the upper right corner of a cod
 
 You can also launch Cloud Shell in a separate browser tab by going to https://shell.azure.com/bash. 
 
-## Create a resource group
-Create a resource group with the az group create command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named **myResourceGroup2** in the **westeurope** location:
-
-```console
-az group create --name myResourceGroup2 --location westeurope
-```
+## Resource Group
+An Azure resource group is a logical container into which Azure resources are deployed and managed. For this workshop, a resource group has already been created, that everyone will use. The resource group name is **VG-A-33858-LAB-RG**
 
 ## Create virtual machine
-Create a VM with the az vm create command.
+A Virtual Machine can be created with the ````az vm create```` command. 
 
-The following example creates a VM named myVM2 and adds a user account named azureuser. 
+### Note: since we all share the same resource group, each VM needs a unique name. To make sure that is the case, you could for instance use your corporate signum in the name of the VM.
+
+The following example creates a VM named **pelithnevm** and adds a user account named azureuser. 
 
 ## TODO: change to password
 The admin-username and admin-password will be used to login to the VM. Note that it is not a recommended security practice to enter a password in clear text as below. Instead ssh-keys should be used.
 
 ```console
 az vm create \
-  --resource-group myResourceGroup2 \
-  --name myVM2 \
+  --resource-group mVG-A-33858-LAB-RG \
+  --name pelithnevm \
   --image UbuntuLTS \
   --admin-username azureuser \
   --admin-password A-very-secure-passw0rd
@@ -44,23 +42,23 @@ It takes a few minutes to create the VM and supporting resources. The following 
 ````console
 {
   "fqdns": "",
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/pelithnevm",
   "location": "westeurope",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "myResourceGroup"
+  "resourceGroup": "VG-A-33858-LAB-RG"
 }
 ````
 
 Note your own publicIpAddress in the output from your VM. This address is used to access the VM in the next steps.
 
 ## Open port 80 for web traffic
-By default, only SSH connections are opened when you create a Linux VM in Azure. Use az vm open-port to open TCP port 80 for use with the NGINX web server:
+By default, only SSH connections are opened when you create a Linux VM in Azure. Use az vm open-port to also open TCP port 80 for use with the NGINX web server:
 
 ````console
-az vm open-port --port 80 --resource-group myResourceGroup2 --name myVM2
+az vm open-port --port 80 --resource-group VG-A-33858-LAB-RG --name pelithnevm
 ````
 
 ## Connect to virtual machine
