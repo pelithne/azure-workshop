@@ -59,14 +59,14 @@ runcmd:
 ````
 
 ### Create virtual machine
-This time, when you create the VM, you will pass your newly created cloud-init.txt file to the ````az vm create```` command. Other than that, the procedure is the same as before (make sure to use your own unique name for the VM)
+This time, when you create the VM, you will pass your newly created cloud-init.txt file to the ````az vm create```` command. Also, this time around, we will not use a password, and instead let **az cli** create an ssh key for us. Finally, we use Ubuntu 14.04:latest as the base image for the VM. Other than that, the procedure is the same as before (make sure to use your own unique name for the VM)
 ````console
 az vm create \
     --resource-group  VG-A-33858-LAB-RG \
     --name pelithnevm \
-    --image UbuntuLTS \
+    --image UbuntuServer:14.04.5-LTS:latest \
     --admin-username azureuser \
-    --admin-password A-very-secure-passw0rd \
+    --generate-ssh-keys \
     --custom-data cloud-init.txt
 ````
 
