@@ -109,3 +109,11 @@ az network public-ip show \
     --output tsv
 ````
 
+In the browser, you should se something similar to:
+<p align="left">
+  <img width="75%" height="75%" hspace="20" src="./media/scale-set-test.PNG">
+</p>
+<br>
+
+
+## Management tasks
