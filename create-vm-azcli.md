@@ -35,7 +35,7 @@ az vm create \
   --image UbuntuLTS \
   --admin-username azureuser \
   --admin-password A-very-secure-passw0rd \
-  --size Basic_A0
+  --size Standard_B1s
   ```
   
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
