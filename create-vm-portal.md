@@ -1,15 +1,13 @@
 
 # Create Linux Virtual Machine - tutorial
 ## Introduction
-This quick tutorial shows two different ways to create a virtual machine in Azure. In the first part, you will create a VM using the Azure Portal, and in the second step you will use the Azure CLI to achieve the same thing.
+This quick tutorial shows how to create a virtual machine in Azure using the Azure Portal.
 
 ## Create VM using Azure Portal
-Azure virtual machines (VMs) can be easily created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a Linux virtual machine (VM) running Ubuntu 16.04 LTS. To see your VM in action, you also SSH to the VM and install the NGINX web server.
-
-If you don't have an Azure subscription, create a free account before you begin.
+Azure virtual machines (VMs) can be easily created through the Azure portal. The Azure portal is a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a Linux virtual machine (VM) running (for example) Ubuntu 16.04 LTS. To see your VM in action, you also SSH to the VM and install the NGINX web server.
 
 ## Sign in to Azure
-The first step is to sign into the portal.
+The first step is to sign into the portal, using your azure account.
 
 ## Create virtual machine
 * Choose Create a resource in the upper left corner of the Azure portal:
@@ -27,7 +25,7 @@ The first step is to sign into the portal.
 
 
 
-* In the Basics tab, under Project details, make sure the correct subscription is selected and then choose to Create new under Resource group. In the pop-up, type **VG-A-33858-LAB-RG** for the name of the resource group and then choose OK. 
+* In the Basics tab, under Project details, make sure the correct subscription is selected and then choose the resource group **VG-A-33858-LAB-RG**
 
 ### Note: The resourse group ````VG-A-33858-LAB-RG````has been created for the purpose of this workshop, and will be used by everyone. 
 <p align="left">
