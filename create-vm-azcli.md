@@ -30,12 +30,12 @@ The admin-username and admin-password will be used to login to the VM. Note that
 
 ```console
 az vm create \
-  --resource-group mVG-A-33858-LAB-RG \
+  --resource-group VG-A-33858-LAB-RG \
   --name pelithnevm \
   --image UbuntuLTS \
   --admin-username azureuser \
-  --admin-password A-very-secure-passw0rd
-  --size Basic_A0 \
+  --admin-password A-very-secure-passw0rd \
+  --size Basic_A0
   ```
   
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
