@@ -29,13 +29,13 @@ The first step is to sign into the portal, using your azure account.
 
 ### Note: The resourse group ````VG-A-33858-LAB-RG````has been created for the purpose of this workshop, and will be used by everyone. 
 <p align="left">
-  <img width="75%" height="75%" hspace="20" src="./media/im1-project-details-2.png">
+  <img width="75%" height="75%" hspace="20" src="./media/im1-project-details-3.png">
 </p>
 <br>
 
 * Under Instance details, give the Virtual machine a unique name name (e.g. using your corporate signum) and choose West Europe for your Region. Leave the other defaults
 <p align="left">
-  <img width="75%" height="75%" hspace="20" src="./media/im2-instance-details-2.png">
+  <img width="75%" height="75%" hspace="20" src="./media/im2-instance-details-3.png">
 </p>
 <br>
 
@@ -62,7 +62,7 @@ Create an SSH connection with the VM.
 
 Select the Connect button on the overview page for your VM.
 <p align="left">
-  <img width="75%" height="75%" hspace="20" src="./media/connect-to-vm.png">
+  <img width="75%" height="75%" hspace="20" src="./media/connect-to-vm-2.png">
 </p>
 <br>
 
