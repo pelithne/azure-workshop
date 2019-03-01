@@ -19,15 +19,17 @@ The first step is to sign into the portal.
 </p>
 <br>
 
-* In the search box above the list of Azure Marketplace resources, search for and select Ubuntu Server 16.04 LTS, then choose Create.
+* In the search box above the list of Azure Marketplace resources, search for and select Ubuntu Server 16.04 LTS (or any ubuntu release you feel like using), then choose Create.
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/create-ubuntu1604-2.png">
 </p>
 <br>
 
+
+
 * In the Basics tab, under Project details, make sure the correct subscription is selected and then choose to Create new under Resource group. In the pop-up, type **VG-A-33858-LAB-RG** for the name of the resource group and then choose OK. 
 
-The resourse group has been created for the purpose of this workshop, and will be used by everyone. 
+### Note: The resourse group ````VG-A-33858-LAB-RG````has been created for the purpose of this workshop, and will be used by everyone. 
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/im1-project-details-2.png">
 </p>
