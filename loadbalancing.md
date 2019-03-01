@@ -189,6 +189,7 @@ for i in `seq 1 3`; do
         --image UbuntuLTS \
         --admin-username azureuser \
         --generate-ssh-keys \
+        --size Standard_B1s \
         --custom-data cloud-init.txt \
         --no-wait
 done
