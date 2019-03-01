@@ -66,6 +66,7 @@ az vm create \
     --name pelithnevm \
     --admin-username azureuser \
     --generate-ssh-keys \
+    --size Standard_B1s \
     --custom-data cloud-init.txt
 ````
 
