@@ -81,3 +81,5 @@ az vm open-port --port 80 --resource-group VG-A-33858-LAB-RG --name pelithnevm
 Now you can open a web browser and enter http:// in the address bar. Provide your own public IP address from the VM create process. Your Node.js app is displayed as shown in the following example:
 
 
+## Next step
+Next step is to configure loadbalancing. This involves bringing up another VM, and to deploy a load balancer infront of that VM and the VM created in this step. Please <a href="https://github.com/pelithne/azure-workshop/blob/master/loadbalancing.md">here</a> to continue.
