@@ -213,7 +213,7 @@ You can then enter the public IP address in to a web browser. Remember - it take
 </p>
 <br>
 
-If you open up the same page in another browser window, you should see that a different VM is selected by the Load Balancer. If not, try again.
+If you open up the same page in another browser window (even better in a different browser), you should see that a different VM is selected by the Load Balancer. If not, try again.
 
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/lb-test-3.png">
