@@ -73,7 +73,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --size Standard_B1s \
+  --vm-sku Standard_B1s \
   --generate-ssh-keys
 ````
 It takes a few minutes to create and configure all the scale set resources and VMs. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app.
@@ -83,17 +83,20 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 To allow traffic to reach the web app, create a rule with ````az network lb rule create````. The following example creates a rule named pelithneLBRuleWeb:
 
+### note: give the resources unique names, e.g. by using your corporate signum.
+
 ````
 az network lb rule create \
   --resource-group VG-A-33858-LAB-RG \
   --name pelithneLBRuleWeb \
-  --lb-name myScaleSetLB \
+  --lb-name pelithneScaleSetLB \
   --backend-pool-name pelithneScaleSetLBBEPool \
   --backend-port 80 \
-  --frontend-ip-name pelithneLBFrontEnd \
+  --frontend-ip-name loadBalancerFrontEnd \
   --frontend-port 80 \
   --protocol tcp
 ````
+This may take a while... patience!
 
 ## Test your app
 To see your Node.js app on the web, obtain the public IP address of your load balancer with ````az network public-ip show````. The following example obtains the IP address for **Name TBD** created as part of the scale set:
@@ -101,7 +104,7 @@ To see your Node.js app on the web, obtain the public IP address of your load ba
 ````
 az network public-ip show \
     --resource-group VG-A-33858-LAB-RG \
-    --name myScaleSetLBPublicIP \
+    --name pelithneScaleSetLBPublicIP \
     --query [ipAddress] \
     --output tsv
 ````
