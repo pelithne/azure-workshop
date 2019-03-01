@@ -9,5 +9,5 @@ The tutorials can be run independendetly, but are intended to be run in the foll
 
 3: <a href="https://github.com/pelithne/azure-workshop/blob/master/custom-config.md">Create Vitual Machine with Custom Configuration</a>.
 
-4: <a href="https://github.com/pelithne/azure-workshop/blob/master/loadbalancing.md">Lodbalance traffic over several VMs</a>.
+4: <a href="https://github.com/pelithne/azure-workshop/blob/master/loadbalancing.md">Loadbalance traffic over several VMs</a>.
 
