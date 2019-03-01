@@ -220,3 +220,6 @@ If you open up the same page in another browser window (even better in a differe
   <img width="75%" height="75%" hspace="20" src="./media/lb-test-3.png">
 </p>
 <br>
+
+## Next step
+Next step is to set up a VM Scale Set, to create an automatically scaling application. Click <a href="https://github.com/pelithne/azure-workshop/blob/master/vm-scale-sets.md">here</a> to continue.
