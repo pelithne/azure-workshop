@@ -58,9 +58,7 @@ The first step is to sign into the portal, using your azure account.
 
 
 ### Connect to virtual machine
-Create an SSH connection with the VM.
-
-Select the Connect button on the overview page for your VM.
+In this step you will create an SSH connection with the VM. Select the Connect button on the overview page for your VM.
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/connect-to-vm-2.png">
 </p>
