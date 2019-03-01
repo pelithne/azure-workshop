@@ -71,7 +71,7 @@ ssh azureuser@10.111.12.123
 ```
 
 ### Install web server
-To see your VM in action, install an NGINX web server. From your SSH session, update your package sources and then install the latest NGINX package.
+When you have logged into your VM using ssh, you can install an NGINX web server to see the VM in action. From your SSH session, update your package sources and then install the latest NGINX package, like this:
 ```console
 sudo apt-get -y update
 sudo apt-get -y install nginx
