@@ -26,14 +26,14 @@ az network public-ip create \
 ### Create a load balancer
 Create a load balancer with ````az network lb create````. The following example creates a load balancer named pelithneLB and assigns the newly created IP address to the front-end IP configuration.
 
-### note: give the Load Balancer a unique name, e.g. by using your corporate signum.
+### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````console
 az network lb create \
     --resource-group VG-A-33858-LAB-RG \
     --name pelithneLB \
-    --frontend-ip-name myFrontEndPool \
-    --backend-pool-name myBackEndPool \
+    --frontend-ip-name pelithneFEP \
+    --backend-pool-name pelithneBEP \
     --public-ip-address pelithneIP
 ````
 
@@ -52,15 +52,17 @@ az network lb rule create \
     --protocol tcp \
     --frontend-port 80 \
     --backend-port 80 \
-    --frontend-ip-name myFrontEndPool \
-    --backend-pool-name myBackEndPool \
+    --frontend-ip-name pelithneFEP \
+    --backend-pool-name pelithneBEP \
 ````
+
+This command may take some time to complete, so have patience...
 
 ## Configure virtual network
 Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. 
 
 ### Create network resources
-Create a virtual network with ````az network vnet create````. The following example creates a virtual network named pelithneVnet with a subnet named mySubnet:
+Create a virtual network with ````az network vnet create````. The following example creates a virtual network named pelithneVnet with a subnet named pelithneSubnet:
 
 ### note: give the resources unique names, e.g. by using your corporate signum.
 
@@ -74,18 +76,19 @@ az network vnet create \
 To add a network security group, you use ````az network nsg create````. The following example creates a network security group named pelithneNSG.
 
 ### note: give the nsg a unique name, e.g. by using your corporate signum. 
-
+````console
 az network nsg create \
     --resource-group VG-A-33858-LAB-RG \
     --name pelithneNSG
+````
 
-Create a network security group rule with ````az network nsg rule create````. The following example creates a network security group rule named myNetworkSecurityGroupRule:
+Create a network security group rule with ````az network nsg rule create````. The following example creates a network security group rule named pelithneNSGRule:
 
 ````console
 az network nsg rule create \
     --resource-group VG-A-33858-LAB-RG \
     --nsg-name pelithneNSG \
-    --name myNetworkSecurityGroupRule \
+    --name pelithneNSGRule \
     --priority 1001 \
     --protocol tcp \
     --destination-port-range 80
@@ -104,14 +107,14 @@ for i in `seq 1 3`; do
         --subnet pelithneSubnet \
         --network-security-group pelithneNSG \
         --lb-name pelithneLB \
-        --lb-address-pools myBackEndPool
+        --lb-address-pools pelithneBEP
 done
 ````
 
 ## Virtual Machines
-In a previous tutorial on How to customize a Linux virtual machine on first boot, you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app in the next step. To see the load balancer in action, at the end of the tutorial you access this simple app in a web browser.
+In a previous tutorial on how to customize a Linux virtual machine on first boot, you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app in the next step. To see the load balancer in action, at the end of the tutorial you access this simple app in a web browser.
 
-If you did not already create a **cloud-init** file, you can create one now, e.g. using the VS Code extenstion to the cloud shell:
+If you did not already create a **cloud-init** file, you can create one now e.g. using the VS Code extenstion to the cloud shell:
 
 ````console
 code cloud-init.txt
@@ -210,3 +213,4 @@ You can then enter the public IP address in to a web browser. Remember - it take
 </p>
 <br>
 
+If you click refresh, you should see that different VMs are selected by the Load Balancer.
