@@ -20,14 +20,13 @@ You can also launch Cloud Shell in a separate browser tab by going to https://sh
 An Azure resource group is a logical container into which Azure resources are deployed and managed. For this workshop, a resource group has already been created, that everyone will use. The resource group name is **VG-A-33858-LAB-RG**
 
 ## Create virtual machine
-A Virtual Machine can be created with the ````az vm create```` command. 
+A Virtual Machine can be created with the ````az vm create```` command. Along with the create command you will pass a number of information elements, sfor instance which **resource group** to use, which **operating system** and **VM size**. For VM size you will use **A0** which is one currently the cheapest VM that can be used.
 
 ### Note: since we all share the same resource group, each VM needs a unique name. To make sure that is the case, you could for instance use your corporate signum in the name of the VM.
 
 The following example creates a VM named **pelithnevm** and adds a user account named azureuser. 
 
-## TODO: change to password
-The admin-username and admin-password will be used to login to the VM. Note that it is not a recommended security practice to enter a password in clear text as below. Instead ssh-keys should be used.
+The admin-username and admin-password will be used to login to the VM. Note that it is not a recommended security practice to enter a password in clear text as below. Instead ssh-keys should be used. In the next tutorial step, this will be the case.
 
 ```console
 az vm create \
@@ -36,6 +35,7 @@ az vm create \
   --image UbuntuLTS \
   --admin-username azureuser \
   --admin-password A-very-secure-passw0rd
+  --size Basic_A0 \
   ```
   
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
