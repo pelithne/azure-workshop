@@ -62,13 +62,13 @@ Before you deploy some VMs and can test your balancer, create the supporting vir
 ### Create network resources
 Create a virtual network with ````az network vnet create````. The following example creates a virtual network named pelithneVnet with a subnet named mySubnet:
 
-### note: give the pvnet a unique name, e.g. by using your corporate signum. The subnet can have a generic name though, since it resides under your (already unique) vnet.
+### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````console
 az network vnet create \
     --resource-group VG-A-33858-LAB-RG \
     --name pelithneVnet \
-    --subnet-name mySubnet
+    --subnet-name pelithneSubnet
 ````
 
 To add a network security group, you use ````az network nsg create````. The following example creates a network security group named pelithneNSG.
@@ -91,7 +91,9 @@ az network nsg rule create \
     --destination-port-range 80
 ````
 
-Virtual NICs are created with az network nic create. The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+Virtual NICs are created with az network nic create. The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer. You can of course do this without the for loop, and instead name the NICs manually
+
+### note: As always, give the resources unique names, e.g. by using your corporate signum. 
 
 ````console
 for i in `seq 1 3`; do
@@ -99,11 +101,112 @@ for i in `seq 1 3`; do
         --resource-group VG-A-33858-LAB-RG \
         --name pelithneNic$i \
         --vnet-name pelithneVnet \
-        --subnet mySubnet \
+        --subnet pelithneSubnet \
         --network-security-group pelithneNSG \
         --lb-name pelithneLB \
         --lb-address-pools myBackEndPool
 done
 ````
 
+## Virtual Machines
+In a previous tutorial on How to customize a Linux virtual machine on first boot, you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app in the next step. To see the load balancer in action, at the end of the tutorial you access this simple app in a web browser.
+
+If you did not already create a **cloud-init** file, you can create one now, e.g. using the VS Code extenstion to the cloud shell:
+
+````console
+code cloud-init.txt
+````
+Then paste the folling into the file and save (right click in the text editor "window" and select **save**)
+
+````
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+````
+
+### Create Availability Set
+To improve the high availability of your app, place your VMs in an availability set. 
+
+Create an availability set with ````az vm availability-set create````. The following example creates an availability set named pelithneAS:
+
+````
+az vm availability-set create \
+    --resource-group VG-A-33858-LAB-RG \
+    --name pelithneAS
+````
+
+### Create VMs
+Now you can create the VMs with ````az vm create````. The following example creates three VMs and generates SSH keys if they do not already exist. Once again, you can create the VMs without the for loop. If so, make sure to assign unique NICs to each VM.
+
+### note: Give the resources unique names, e.g. by using your corporate signum. 
+
+````
+for i in `seq 1 3`; do
+    az vm create \
+        --resource-group VG-A-33858-LAB-RG \
+        --name pelithneVM$i \
+        --availability-set pelithneAS \
+        --nics pelithneNic$i \
+        --image UbuntuLTS \
+        --admin-username azureuser \
+        --generate-ssh-keys \
+        --custom-data cloud-init.txt \
+        --no-wait
+done
+````
+
+There are background tasks that continue to run after the Azure CLI returns you to the prompt. The --no-wait parameter does not wait for all the tasks to complete. It may be another couple of minutes before you can access the app.
+
+## Test the Load Balancer
+Obtain the public IP address of your load balancer with ````az network public-ip show````. The following example obtains the IP address for the public IP address created earlier:
+
+````
+az network public-ip show \
+    --resource-group VG-A-33858-LAB-RG \
+    --name pelithneIP \
+    --query [ipAddress] \
+    --output tsv
+````
+You can then enter the public IP address in to a web browser. Remember - it takes a few minutes for the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
+
+<p align="left">
+  <img width="75%" height="75%" hspace="20" src="./media/clb-test-1.png">
+</p>
+<br>
 
