@@ -99,7 +99,7 @@ az network lb rule create \
 This may take a while... patience!
 
 ## Test your app
-To see your Node.js app on the web, obtain the public IP address of your load balancer with ````az network public-ip show````. The following example obtains the IP address for **Name TBD** created as part of the scale set:
+To see your Node.js app on the web, obtain the public IP address of your load balancer with ````az network public-ip show````. The following example obtains the IP address for pelithneScaleSetLBPublicIP created as part of the scale set:
 
 ````
 az network public-ip show \
