@@ -1,4 +1,4 @@
-# azure-workshop
+# Azure Workshop
 Introductory Azure workshop
 
 The tutorials can be run independendetly, but are intended to be run in sequence:
