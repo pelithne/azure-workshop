@@ -117,3 +117,47 @@ In the browser, you should se something similar to:
 
 
 ## Management tasks
+Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. The Azure CLI provides a quick way to do those tasks. Here are a few common tasks.
+
+### View VMs in a scale set
+To view a list of VMs running in your scale set, use ````az vmss list-instances```` as follows:
+
+````
+az vmss list-instances \
+  --resource-group VG-A-33858-LAB-RG \
+  --name pelithneScaleSet \
+  --output table
+````
+
+### Manually increase or decrease VM instances
+To see the number of instances you currently have in a scale set, use ````az vmss show and query```` on sku.capacity:
+
+````
+az vmss show \
+    --resource-group VG-A-33858-LAB-RG \
+    --name pelithneScaleSet \
+    --query [sku.capacity] \
+    --output table
+````
+You can then manually increase or decrease the number of virtual machines in the scale set with ````az vmss scale````. The following example sets the number of VMs in your scale set to 3:
+
+````
+az vmss scale \
+    --resource-group VG-A-33858-LAB-RG \
+    --name pelithneScaleSet \
+    --new-capacity 3
+````
+
+When the command returns, you can check once again the number of VMs in the scale set:
+
+````
+az vmss show \
+    --resource-group VG-A-33858-LAB-RG \
+    --name pelithneScaleSet \
+    --query [sku.capacity] \
+    --output table
+````
+ 
+    
+    
+
