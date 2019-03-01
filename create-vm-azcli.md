@@ -81,6 +81,9 @@ When done, type exit to leave the SSH session.
 
 ## View the web server in action
 Use a web browser of your choice to view the default NGINX welcome page. Use the public IP address of your VM as the web address. The following example shows the default NGINX web site:
+<p align="left">
+  <img width="75%" height="75%" hspace="20" src="./media/nginx.png">
+</p>
 
 ## Next step
 Next step is to create another VM, but with more customized configuration, using the Azure CLI. Click <a href="https://github.com/pelithne/azure-workshop/blob/master/custom-config.md">here</a> to continue to this step.
