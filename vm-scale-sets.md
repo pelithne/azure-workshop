@@ -63,7 +63,9 @@ runcmd:
 
 ## Create a scale set
 
-Create a virtual machine scale set with ````az vmss create````. The following example creates a scale set named pelithneScaleSet, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist:
+Create a virtual machine scale set with ````az vmss create````. The following example creates a scale set named pelithneScaleSet, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist.
+
+### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````console
 az vmss create \
@@ -139,7 +141,9 @@ az vmss show \
     --query [sku.capacity] \
     --output table
 ````
-You can then manually increase or decrease the number of virtual machines in the scale set with ````az vmss scale````. The following example sets the number of VMs in your scale set to 3:
+You can then manually increase or decrease the number of virtual machines in the scale set with ````az vmss scale````. The following example sets the number of VMs in your scale set to 3.
+
+### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````
 az vmss scale \
