@@ -11,3 +11,5 @@ The tutorials can be run independendetly, but are intended to be run in the foll
 
 4: <a href="https://github.com/pelithne/azure-workshop/blob/master/loadbalancing.md">Loadbalance traffic over several VMs</a>.
 
+5: <a href="https://github.com/pelithne/azure-workshop/blob/master/vm-scale-sets.md">Configure VM Scale Sets</a>.
+
