@@ -1,4 +1,4 @@
-# Custom configuration, scaling and loadbalancing
+# Create VM with Customized configuration
 
 This tutorial goes into how to add configuration to a VM at boot time, how to scale VMs and how to loadbalance traffic to a set of VMS.
 
