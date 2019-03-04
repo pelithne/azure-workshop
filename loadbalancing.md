@@ -70,7 +70,7 @@ az network nsg rule create --resource-group VG-A-33858-LAB-RG --nsg-name pelithn
 
 Virtual NICs are created with az network nic create. The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer. You can of course do this without the for loop, and instead name the NICs manually
 
-### note: As always, give the resources unique names, e.g. by using your corporate signum. 
+#### note: As always, give the resources unique names, e.g. by using your corporate signum. 
 
 ````console
 for i in `seq 1 3`; do
