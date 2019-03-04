@@ -14,7 +14,9 @@ To open the Cloud Shell, just select Try it from the upper right corner of a cod
 </p>
 <br>
 
-You can also launch Cloud Shell in a separate browser tab by going to https://shell.azure.com/bash. 
+You can also launch Cloud Shell in a separate browser tab by going to https://shell.azure.com/bash.
+
+### Pro-tip: In cloud shell you can use ctrl-c to copy text. To paste however, you need to use Shift-insert (or right-click -> paste) 
 
 ## Resource Group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. For this workshop, a resource group has already been created, that everyone will use. The resource group name is **VG-A-33858-LAB-RG**
