@@ -133,7 +133,7 @@ az vmss show --resource-group VG-A-33858-LAB-RG --name pelithneScaleSet --query 
 To make sure we don't use unnecessary resources, and to keep things clean, you should remove all the resources created in this step. One way of doing that is to go to the **Resource Group** blade, and filter on the unique name you assigned to the VM. This will match all the resources that were created together with the VM.
 
 <p align="left">
-  <img width="85%" height="85%" hspace="20" src="./media/cleanup.PNG">
+  <img width="85%" height="85%" hspace="20" src="./media/cleanup-scaleset.PNG">
 </p>
 
 Now you can check the boxes next to your resources, and then click delete (in the upper right part of the window).
