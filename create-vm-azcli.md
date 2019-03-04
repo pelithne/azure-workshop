@@ -16,7 +16,7 @@ To open the Cloud Shell, just select Try it from the upper right corner of a cod
 
 You can also launch Cloud Shell in a separate browser tab by going to https://shell.azure.com/bash.
 
-### Pro-tip: In cloud shell you can use ctrl-c to copy text. To paste however, you need to use Shift-insert (or right-click -> paste) 
+#### Pro-tip: In cloud shell you can use ctrl-c to copy text. To paste however, you need to use Shift-insert (or right-click -> paste) 
 
 ## Resource Group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. For this workshop, a resource group has already been created, that everyone will use. The resource group name is **VG-A-33858-LAB-RG**
@@ -24,7 +24,7 @@ An Azure resource group is a logical container into which Azure resources are de
 ## Create virtual machine
 A Virtual Machine can be created with the ````az vm create```` command. Along with the create command you will pass a number of information elements, sfor instance which **resource group** to use, which **operating system** and **VM size**. For VM size you will use **A0** which is one currently the cheapest VM that can be used.
 
-### Note: since we all share the same resource group, each VM needs a unique name. To make sure that is the case, you could for instance use your corporate signum in the name of the VM.
+#### Note: since we all share the same resource group, each VM needs a unique name. To make sure that is the case, you could for instance use your corporate signum in the name of the VM.
 
 The following example creates a VM named **pelithnevm** and adds a user account named azureuser. 
 
