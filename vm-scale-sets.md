@@ -68,15 +68,7 @@ Create a virtual machine scale set with ````az vmss create````. The following ex
 ### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````console
-az vmss create \
-  --resource-group VG-A-33858-LAB-RG \
-  --name pelithneScaleSet \
-  --image UbuntuLTS \
-  --upgrade-policy-mode automatic \
-  --custom-data cloud-init.txt \
-  --admin-username azureuser \
-  --vm-sku Standard_B1s \
-  --generate-ssh-keys
+az vmss create --resource-group VG-A-33858-LAB-RG --name pelithneScaleSet --image UbuntuLTS --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --vm-sku Standard_B1s --generate-ssh-keys
 ````
 It takes a few minutes to create and configure all the scale set resources and VMs. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app.
 
@@ -88,15 +80,7 @@ To allow traffic to reach the web app, create a rule with ````az network lb rule
 ### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````
-az network lb rule create \
-  --resource-group VG-A-33858-LAB-RG \
-  --name pelithneLBRuleWeb \
-  --lb-name pelithneScaleSetLB \
-  --backend-pool-name pelithneScaleSetLBBEPool \
-  --backend-port 80 \
-  --frontend-ip-name loadBalancerFrontEnd \
-  --frontend-port 80 \
-  --protocol tcp
+az network lb rule create --resource-group VG-A-33858-LAB-RG --name pelithneLBRuleWeb --lb-name pelithneScaleSetLB --backend-pool-name pelithneScaleSetLBBEPool --backend-port 80 --frontend-ip-name loadBalancerFrontEnd --frontend-port 80 --protocol tcp
 ````
 This may take a while... patience!
 
@@ -104,11 +88,7 @@ This may take a while... patience!
 To see your Node.js app on the web, obtain the public IP address of your load balancer with ````az network public-ip show````. The following example obtains the IP address for pelithneScaleSetLBPublicIP created as part of the scale set:
 
 ````
-az network public-ip show \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneScaleSetLBPublicIP \
-    --query [ipAddress] \
-    --output tsv
+az network public-ip show --resource-group VG-A-33858-LAB-RG --name pelithneScaleSetLBPublicIP --query [ipAddress] --output tsv
 ````
 
 In the browser, you should se something similar to:
@@ -125,41 +105,27 @@ Throughout the lifecycle of the scale set, you may need to run one or more manag
 To view a list of VMs running in your scale set, use ````az vmss list-instances```` as follows:
 
 ````
-az vmss list-instances \
-  --resource-group VG-A-33858-LAB-RG \
-  --name pelithneScaleSet \
-  --output table
+az vmss list-instances --resource-group VG-A-33858-LAB-RG --name pelithneScaleSet --output table
 ````
 
 ### Manually increase or decrease VM instances
 To see the number of instances you currently have in a scale set, use ````az vmss show and query```` on sku.capacity:
 
 ````
-az vmss show \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneScaleSet \
-    --query [sku.capacity] \
-    --output table
+az vmss show --resource-group VG-A-33858-LAB-RG --name pelithneScaleSet --query [sku.capacity] --output table
 ````
 You can then manually increase or decrease the number of virtual machines in the scale set with ````az vmss scale````. The following example sets the number of VMs in your scale set to 3.
 
 ### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````
-az vmss scale \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneScaleSet \
-    --new-capacity 3
+az vmss scale --resource-group VG-A-33858-LAB-RG --name pelithneScaleSet --new-capacity 3
 ````
 
 When the command returns, you can check once again the number of VMs in the scale set:
 
 ````
-az vmss show \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneScaleSet \
-    --query [sku.capacity] \
-    --output table
+az vmss show --resource-group VG-A-33858-LAB-RG --name pelithneScaleSet --query [sku.capacity] --output table
 ````
  
     
