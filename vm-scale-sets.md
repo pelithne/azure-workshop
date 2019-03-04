@@ -128,6 +128,9 @@ When the command returns, you can check once again the number of VMs in the scal
 az vmss show --resource-group VG-A-33858-LAB-RG --name pelithneScaleSet --query [sku.capacity] --output table
 ````
  
+## Nest steps
+To build on this exercise, you can continue with a tutorial to configure auto scaling for the scale set: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/tutorial-autoscale-cli
+
     
 ## Clean-up
 To make sure we don't use unnecessary resources, and to keep things clean, you should remove all the resources created in this step. One way of doing that is to go to the **Resource Group** blade, and filter on the unique name you assigned to the VM. This will match all the resources that were created together with the VM.
