@@ -76,7 +76,7 @@ az vm open-port --port 80 --resource-group VG-A-33858-LAB-RG --name pelithnevm
 Now you can open a web browser and enter http:// in the address bar. Provide your own public IP address from the VM create process. Your Node.js app is displayed as shown in the following example:
 
 ## Clean-up
-To make sure we don't use unnecessary resources, and to keep things clean, you should remove all the resources created in this step. One way of doing that is to got to the resource group blade, and filter on the unique name you assigned to the VM:
+To make sure we don't use unnecessary resources, and to keep things clean, you should remove all the resources created in this step. One way of doing that is to go to the **Resource Group** blade, and filter on the unique name you assigned to the VM. This will match all the resources that were created together with the VM.
 
 <p align="left">
   <img width="85%" height="85%" hspace="20" src="./media/cleanup.PNG">
