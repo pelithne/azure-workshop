@@ -81,5 +81,14 @@ Use a web browser of your choice to view the default NGINX welcome page. Use the
   <img width="75%" height="75%" hspace="20" src="./media/nginx.png">
 </p>
 
+## Clean-up
+To make sure we don't use unnecessary resources, and to keep things clean, you should remove all the resources created in this step. One way of doing that is to got to the resource group blade, and filter on the unique name you assigned to the VM:
+
+<p align="left">
+  <img width="85%" height="85%" hspace="20" src="./media/cleanup.PNG">
+</p>
+
+Now you can check the boxes next to your resources, and then click delete (in the upper right part of the window).
+
 ## Next step
 Next step is to create another VM, but with more customized configuration, using the Azure CLI. Click <a href="https://github.com/pelithne/azure-workshop/blob/master/custom-config.md">here</a> to continue to this step.
