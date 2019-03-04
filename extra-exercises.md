@@ -9,3 +9,5 @@ https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template
 ### Scale with vm agents
 https://docs.microsoft.com/en-us/azure/jenkins/jenkins-azure-vm-agents
 
+### Container instances as build agents
+https://docs.microsoft.com/en-us/azure/container-instances/container-instances-jenkins
