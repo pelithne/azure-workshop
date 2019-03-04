@@ -18,9 +18,7 @@ To access your app on the Internet, you need a public IP address for the load ba
 ### note: give the public ip a unique name, e.g. by using your corporate signum. This is important, since you are all working in the same Resource Group.
 
 ````console
-az network public-ip create \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneIP
+az network public-ip create --resource-group VG-A-33858-LAB-RG --name pelithneIP
  ````
  
 ### Create a load balancer
@@ -29,12 +27,7 @@ Create a load balancer with ````az network lb create````. The following example 
 ### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````console
-az network lb create \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneLB \
-    --frontend-ip-name pelithneFEP \
-    --backend-pool-name pelithneBEP \
-    --public-ip-address pelithneIP
+az network lb create --resource-group VG-A-33858-LAB-RG --name pelithneLB --frontend-ip-name pelithneFEP --backend-pool-name pelithneBEP --public-ip-address pelithneIP
 ````
 
 ### Create a load balancer rule
@@ -45,15 +38,7 @@ Create a load balancer rule with ````az network lb rule create````. The followin
 ### note: give the LB Rule a unique name, e.g. by using your corporate signum.
 
 ````console
-az network lb rule create \
-    --resource-group VG-A-33858-LAB-RG \
-    --lb-name pelithneLB \
-    --name pelithneLBRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name pelithneFEP \
-    --backend-pool-name pelithneBEP \
+az network lb rule create --resource-group VG-A-33858-LAB-RG --lb-name pelithneLB --name pelithneLBRule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name pelithneFEP --backend-pool-name pelithneBEP 
 ````
 
 This command may take some time to complete, so have patience...
@@ -67,31 +52,20 @@ Create a virtual network with ````az network vnet create````. The following exam
 ### note: give the resources unique names, e.g. by using your corporate signum.
 
 ````console
-az network vnet create \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneVnet \
-    --subnet-name pelithneSubnet
+az network vnet create --resource-group VG-A-33858-LAB-RG --name pelithneVnet --subnet-name pelithneSubnet
 ````
 
 To add a network security group, you use ````az network nsg create````. The following example creates a network security group named pelithneNSG.
 
 ### note: give the nsg a unique name, e.g. by using your corporate signum. 
 ````console
-az network nsg create \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneNSG
+az network nsg create --resource-group VG-A-33858-LAB-RG --name pelithneNSG
 ````
 
 Create a network security group rule with ````az network nsg rule create````. The following example creates a network security group rule named pelithneNSGRule:
 
 ````console
-az network nsg rule create \
-    --resource-group VG-A-33858-LAB-RG \
-    --nsg-name pelithneNSG \
-    --name pelithneNSGRule \
-    --priority 1001 \
-    --protocol tcp \
-    --destination-port-range 80
+az network nsg rule create --resource-group VG-A-33858-LAB-RG --nsg-name pelithneNSG --name pelithneNSGRule --priority 1001 --protocol tcp --destination-port-range 80
 ````
 
 Virtual NICs are created with az network nic create. The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer. You can of course do this without the for loop, and instead name the NICs manually
@@ -169,9 +143,7 @@ To improve the high availability of your app, place your VMs in an availability 
 Create an availability set with ````az vm availability-set create````. The following example creates an availability set named pelithneAS:
 
 ````
-az vm availability-set create \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneAS
+az vm availability-set create --resource-group VG-A-33858-LAB-RG --name pelithneAS
 ````
 
 ### Create VMs
@@ -201,11 +173,7 @@ There are background tasks that continue to run after the Azure CLI returns you 
 Obtain the public IP address of your load balancer with ````az network public-ip show````. The following example obtains the IP address for the public IP address created earlier:
 
 ````
-az network public-ip show \
-    --resource-group VG-A-33858-LAB-RG \
-    --name pelithneIP \
-    --query [ipAddress] \
-    --output tsv
+az network public-ip show --resource-group VG-A-33858-LAB-RG --name pelithneIP --query [ipAddress] --output tsv
 ````
 You can then enter the public IP address in to a web browser. Remember - it takes a few minutes for the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
