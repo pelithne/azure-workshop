@@ -29,13 +29,7 @@ The following example creates a VM named **pelithnevm** and adds a user account 
 The admin-username and admin-password will be used to login to the VM. Note that it is not a recommended security practice to enter a password in clear text as below. Instead ssh-keys should be used. In the next tutorial step, this will be the case.
 
 ```console
-az vm create \
-  --resource-group VG-A-33858-LAB-RG \
-  --name pelithnevm \
-  --image UbuntuLTS \
-  --admin-username azureuser \
-  --admin-password A-very-secure-passw0rd \
-  --size Standard_B1s
+az vm create --resource-group VG-A-33858-LAB-RG --name pelithnevm --image UbuntuLTS --admin-username azureuser --admin-password A-very-secure-passw0rd --size Standard_B1s
   ```
   
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
