@@ -27,7 +27,7 @@ The first step is to sign into the portal, using your azure account.
 
 * In the Basics tab, under Project details, make sure the correct subscription is selected and then choose the resource group **VG-A-33858-LAB-RG**
 
-### Note: The resourse group ````VG-A-33858-LAB-RG````has been created for the purpose of this workshop, and will be used by everyone. 
+### Note: The resource group ````VG-A-33858-LAB-RG````has been created for the purpose of this workshop, and will be used by everyone. 
 <p align="left">
   <img width="75%" height="75%" hspace="20" src="./media/im1-project-details-3.png">
 </p>
