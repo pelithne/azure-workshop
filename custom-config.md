@@ -61,13 +61,7 @@ runcmd:
 ### Create virtual machine
 This time, when you create the VM, you will pass your newly created cloud-init.txt file to the ````az vm create```` command. Also, this time around, we will not use a password, and instead let **az cli** create an ssh key for us. Finally, we use Ubuntu 14.04:latest as the base image for the VM. Other than that, the procedure is the same as before (make sure to use your own unique name for the VM)
 ````console
-az vm create \
-    --resource-group  VG-A-33858-LAB-RG \
-    --name pelithnevm \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --size Standard_B1s \
-    --custom-data cloud-init.txt
+az vm create --resource-group  VG-A-33858-LAB-RG --name pelithnevm --admin-username azureuser --generate-ssh-keys --size Standard_B1s --custom-data cloud-init.txt
 ````
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. When the VM has been created, take note of the ````publicIpAddress```` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
