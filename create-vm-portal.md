@@ -84,5 +84,13 @@ Use a web browser of your choice to view the default NGINX welcome page. Enter t
 </p>
 
 
+## Clean-up
+To make sure we don't use unnecessary resources, and to keep things clean, you should remove all the resources created in this step. One way of doing that is to got to the resource group blade, and filter on the unique name you assigned to the VM:
+
+<p align="left">
+  <img width="75%" height="75%" hspace="20" src="./media/cleanup.png">
+</p>
+
+
 ## Nest step
 The next step is to do the same thing again (whoho!) but using the Azure CLI! Click <a href="https://github.com/pelithne/azure-workshop/blob/master/create-vm-azcli.md">here</a> to continue.
