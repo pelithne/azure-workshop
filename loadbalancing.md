@@ -72,6 +72,8 @@ Virtual NICs are created with az network nic create. The following example creat
 
 #### note: As always, give the resources unique names, e.g. by using your corporate signum. 
 
+#### protip: Copy the text below to a text editor and change it, before pasting into cloud shell
+
 ````console
 for i in `seq 1 3`; do
     az network nic create \
