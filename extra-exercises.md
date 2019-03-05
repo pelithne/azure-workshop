@@ -11,3 +11,11 @@ https://docs.microsoft.com/en-us/azure/jenkins/jenkins-azure-vm-agents
 
 ### Container instances as build agents
 https://docs.microsoft.com/en-us/azure/container-instances/container-instances-jenkins
+
+## Container related
+
+### Azure Container Registry (ACR)
+https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli
+
+### Build and deploy container images in the cloud with Azure Container Registry Tasks
+https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task
