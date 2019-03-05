@@ -14,7 +14,7 @@ Cloud-init also works across distributions. For example, you don't use apt-get i
 ### Create cloud-init config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
-In your current shell, create a file named cloud-init.txt and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter ````code cloud-init.txt```` to use **Visual Studio Code** from the cloud shell. If you prefer to use **Vim** or **Nano** you can use that instead. Either way, make sure that the whole cloud-init file is copied correctly, including the first line:
+In your cloud shell, create a file named cloud-init.txt and paste the following configuration. You can use any editor you wish. Enter ````code cloud-init.txt```` to use **Visual Studio Code** from the cloud shell. If you prefer to use **Vim** or **Nano** you can use that instead. Either way, make sure that the whole cloud-init file is copied correctly, including the first line:
 
 ````yaml
 #cloud-config
