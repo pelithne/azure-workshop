@@ -74,7 +74,9 @@ az vm open-port --port 80 --resource-group VG-A-33858-LAB-RG --name pelithnevm
 
 ### Test web app
 Now you can open a web browser enter the **public IP** address from the VM create process. Your Node.js app is displayed with the message defined in your cloud-init.txt
-
+<p align="left">
+  <img width="75%" height="75%" hspace="20" src="./media/cloud-init-webpage.PNG">
+</p>
 
 ## Clean-up
 To make sure we don't use unnecessary resources, and to keep things clean, you should remove all the resources created in this step. One way of doing that is to go to the **Resource Group** blade, and filter on the unique name you assigned to the VM. This will match all the resources that were created together with the VM.
