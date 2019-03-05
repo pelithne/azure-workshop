@@ -1,5 +1,5 @@
 # Some extra work, if you want
-The tutorials below are "generic" in the sense that they have not been adapted to your specific environment. Some extra work and consideration on your part may be needed.
+The tutorials below are "generic" in the sense that they have not been adapted to your specific environment. Some extra work and consideration on your part may be needed (like not trying to delete the whole Resource Group, when cleaning up...).
 
 ## Jenkins related:
 
