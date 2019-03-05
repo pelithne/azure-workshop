@@ -13,3 +13,5 @@ The tutorials can be run independendetly, but are intended to be run in the foll
 
 5: <a href="https://github.com/pelithne/azure-workshop/blob/master/vm-scale-sets.md">Configure VM Scale Sets</a>.
 
+## Extra work!
+If you are done (or just bored) with the exercises above,  <a href="https://github.com/pelithne/azure-workshop/blob/master/extra-exercises.md">here</a> are a bunch of additional tutorials to work with.
